@@ -9,7 +9,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-@durqnr2taph=id6pa5wf0l8+f!_%ugo5fgpn9gfxv7^&tslg3"
 MONGODB_CONNECTION_STRING = os.getenv("MONGODB_CONNECTION_STRING")
 
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     'project-k5.azurewebsites.net',
@@ -21,7 +21,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    
+
     'api',
     'rest_framework',
     'pymongo',
@@ -46,7 +46,7 @@ ROOT_URLCONF = "backend.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [os.path.join(BASE_DIR,'templates')],
+        "DIRS": [os.path.join(BASE_DIR, 'templates')],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
