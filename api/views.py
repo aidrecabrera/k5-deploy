@@ -1,9 +1,7 @@
 import pymongo
-from django.conf import settings
 from django.views.decorators.cache import cache_page
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
-from django.shortcuts import render
 
 client = pymongo.MongoClient(
     'mongodb+srv://svenesismar:a4JvXYZg4PdHpo6m@projectk5cluster.xx0tioc.mongodb.net/')
