@@ -1,13 +1,9 @@
 import os
 from pathlib import Path
-from dotenv import load_dotenv
-
-load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = "django-insecure-@durqnr2taph=id6pa5wf0l8+f!_%ugo5fgpn9gfxv7^&tslg3"
-MONGODB_CONNECTION_STRING = "MONGODB_CONNECTION_STRING=mongodb+srv://svenesismar:a4JvXYZg4PdHpo6m@projectk5cluster.xx0tioc.mongodb.net/"
 
 DEBUG = True
 

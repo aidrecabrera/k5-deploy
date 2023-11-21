@@ -10,6 +10,7 @@ client = pymongo.MongoClient(
 k5_database = client['k5-cluster']
 collection = k5_database['api_test']
 
+
 @api_view(['GET'])
 def getApiInformation(request):
     return Response({
@@ -19,7 +20,8 @@ def getApiInformation(request):
 
 
 def get_data_with_projection(projection, sort_key='_id'):
-    documents = collection.find({}, projection=projection).sort(sort_key, pymongo.ASCENDING)
+    documents = collection.find({}, projection=projection).sort(
+        sort_key, pymongo.ASCENDING)
     projected_documents = []
 
     for document in documents:
@@ -40,7 +42,8 @@ def handle_missing_data(data, key):
 @api_view(['GET'])
 @cache_page(600)
 def population(request):
-    projected_documents = get_data_with_projection({'year': 1, 'population': 1})
+    projected_documents = get_data_with_projection(
+        {'year': 1, 'population': 1})
     population = handle_missing_data(projected_documents, 'population')
 
     return Response({
@@ -71,7 +74,8 @@ def co2(request):
 @api_view(['GET'])
 @cache_page(600)
 def cement_co2(request):
-    projected_documents = get_data_with_projection({'year': 1, 'cement_co2': 1})
+    projected_documents = get_data_with_projection(
+        {'year': 1, 'cement_co2': 1})
     cement_co2 = handle_missing_data(projected_documents, 'cement_co2')
 
     return Response({
